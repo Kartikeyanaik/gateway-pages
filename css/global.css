@@ -1,0 +1,93 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #F8F9FB;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.config {
+    display: flex;
+    flex-direction: column;
+    padding: 0.6rem 1rem;
+    height: 100%;
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.input-row > * {
+  flex: 1 1 0;
+  min-width: 0;             
+}
+
+@media (max-width: 640px) {
+    .main {
+        flex-direction: column;
+        flex: 1 0 auto;
+    }
+
+@media (max-width: 540px) {
+    form {
+        margin-top: 1rem;
+    }
+    .input-row {
+        gap: 1rem;
+    }
+}
+}
+.file{
+    display: flex;
+    column-gap: 4rem;
+}
+.file div{
+    flex:1;
+}
+.info{
+    display: flex;
+column-gap: 2.25rem;
+}
+.info div{
+    flex: 1;
+}
+.bottom{
+    display: flex;
+}
+.bottom div{
+    flex:1;
+}
+.cell{
+    display: flex;
+}
+.cell div {
+    flex: 1;
+}
+.ethernet{
+    display: flex;
+    column-gap: 2.18rem;
+}
+.status{
+    margin-top: 1rem;
+    
+    
+}
+.status div{
+    flex: 1;
+    
+}

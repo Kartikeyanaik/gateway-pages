@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wifi Configuration</title>
+  <link rel="stylesheet" href="./css/global.css">
+</head>
+<style>
+  .scan-button {
+    flex: 0 1 auto;
+    display: flex;
+    margin-bottom: 1.5rem;
+    background-color: #EAEAEA;
+    border: 1px solid transparent;
+    border-radius: 6px;
+  }
+  .scan-button img{
+    height: 1.1rem;
+    width: 0.9rem;
+    padding: 0.5rem 0.55rem;
+  }
+</style>
+<body>
+  <!-- Load the components -->
+  <script type="module" src="js/app-header.js"></script>
+  <script type="module" src="js/app-navbar.js"></script>
+  <script type="module" src="js/app-footer.js"></script>
+  <script type="module" src="js/bread-crumb.js"></script>
+  <script type="module" src="js/toast-container.js"></script>
+  <script type="module" src="js/config-card.js"></script>
+  <script type="module" src="js/status-indicator.js"></script>
+  <script type="module" src="js/enable-button.js"></script>
+  <script type="module" src="js/reset-and-save-buttons.js"></script>
+  <script type="module" src="js/custom-input.js"></script>
+
+  <app-header status="Online"></app-header>
+  <div class="main">
+    <app-navbar></app-navbar>
+    <div class="container">
+      <div class="config">
+        <bread-crumb></bread-crumb>
+        <config-card heading="Wi-Fi Configuration" subheading="Configure your wireless network connection">
+        <!-- Add your components inside -->
+        <status-indicator status="disconnected"></status-indicator>
+        <enable-button value ="{{WIFI_ENABLE}}">Enable Wi-Fi</enable-button>
+        <form>
+          <div class="input-row">
+            <custom-input id="wifi-priority"
+              type="text"
+              title="Priority"
+              placeholder="100"
+              description="Priority of Wi-Fi cannot be changed"
+              value = "{{WIFI_PRIORITY}}">
+            </custom-input>
+
+            <custom-input id="wifi-default-route"
+              type="checkbox"
+              title="Network Options"
+              placeholder="Use as default route"
+              description="Route all traffic through this connection"
+              value = "{{WIFI_DEFAULT_ROUTE}}">
+            </custom-input>
+          </div>
+          <div class="input-row">
+          <custom-input id="wifi-ssid"
+            type="text"
+            title="Network Name (SSID)"
+            placeholder="Enter Wi-Fi network name"
+            description="Click scan to discover networks"
+            value = "{{WIFI_SSID}}">
+          </custom-input>
+          <button class="scan-button">
+            <img src="assets/scan.svg"/>
+          </button>
+          </div>
+          <custom-input id="wifi-password"
+            type="password"
+            title="Password"
+            placeholder="Enter Wi-Fi password"
+            description="Enter the password of your Wi-Fi router">
+          </custom-input>
+        </form>
+        <reset-and-save-buttons></reset-and-save-buttons>
+      </config-card>
+      </div>
+      <app-footer></app-footer>
+    </div>
+  </div>
+  <toast-container></toast-container>
+</body>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const comp = document.querySelector('#wifi-priority');
+    if (!comp) return;
+    const input = comp.shadowRoot?.querySelector('input');
+    if (input) {
+      input.disabled = true;
+      input.style.backgroundColor = '#ECECEC';
+    }
+  });
+</script>
+</html>

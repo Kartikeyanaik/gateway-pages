@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethernet Configuration</title>
+    <link rel="stylesheet" href="./css/global.css">
+</head>
+<body>
+     <script type="module" src="js/app-header.js"></script>
+  <script type="module" src="js/app-navbar.js"></script>
+  <script type="module" src="js/app-footer.js"></script>
+  <script type="module" src="js/bread-crumb.js"></script>
+  <script type="module" src="js/toast-container.js"></script>
+  <script type="module" src="js/config-card.js"></script>
+  <script type="module" src="js/status-indicator.js"></script>
+  <script type="module" src="js/enable-button.js"></script>
+  <script type="module" src="js/reset-and-save-buttons.js"></script>
+  <script type="module" src="js/custom-input.js"></script>
+    
+  <app-header status="Online"></app-header>
+  <div class="main">
+    <app-navbar></app-navbar>
+    <div class="container">
+        <div class="config">
+            <bread-crumb></bread-crumb>
+            <div class="cell">
+            <div class="config1">
+            <config-card heading="Ethernet Port 1 Configuration" subheading="Configure your ethernet port 1 connection">
+                <status-indicator status="disconnected"></status-indicator>
+        <enable-button value ="{{MQTTs}}">Enable Ethernet 1</enable-button>
+        <form >
+            <div class="ethernet">
+                <div>
+<custom-input
+            id="ethernet1-priority"
+            type="text"
+            title="Priority"
+            placeholder=""
+            description="Higher numbers indicate higher priority"
+            value = ""
+>
+</custom-input>
+                </div>
+                <div>
+<custom-input id="ethernet1-network"
+              type="checkbox"
+              title="Network Options"
+              placeholder="Use as default route"
+              description="Route all traffic through this connection"
+              value = "">
+
+</custom-input>
+</div>
+            </div>
+            <custom-input
+                id="ip1-mode"
+               type="dropdown"
+              title="IP Mode"
+              placeholder="Static"
+              description="Choose how the IP is assigned — manually (Static) or automatically (DHCP)"
+              value = ""
+>
+</custom-input>
+<div class="ethernet">
+    <div>
+        <custom-input
+            id="ip1-address"
+            type="text"
+            title="IP Address"
+            placeholder="Enter IP address"
+            description="Static IP address for this Ethernet port"
+            value = ""
+>
+</custom-input>
+    </div>
+    <div>
+        <custom-input
+            id="subnet1-mask"
+            type="text"
+            title="Subnet Mask"
+            placeholder="Enter subnet mask"
+            description="Defines the size of the network"
+            value = ""
+>
+</custom-input>
+    </div>
+</div>
+<div class="ethernet">
+    <div>
+        <custom-input
+            id="default1-gateway"
+            type="text"
+            title="Default Gateway"
+            placeholder="Enter IP address"
+            description="IP address used to reach external networks"
+            value = ""
+>
+</custom-input>
+    </div>
+    <div>
+        <custom-input
+            id="dns1"
+            type="text"
+            title="DNS Server"
+            placeholder="Enter IP address"
+            description="IP address of the DNS server"
+            value = ""
+>
+</custom-input>
+    </div>
+
+</div>
+
+        </form>
+        <reset-and-save-buttons></reset-and-save-buttons>
+            </config-card>
+            </div>
+            <div class="config2">
+            <config-card heading="Ethernet Port 2 Configuration" subheading="Configure your ethernet port 2 connection">
+                   <status-indicator status="disconnected"></status-indicator>
+        <enable-button value ="{{MQTTs}}">Enable Ethernet 2</enable-button>
+        <form >
+            <div class="ethernet">
+                <div>
+<custom-input
+            id="ethernet2-priority"
+            type="text"
+            title="Priority"
+            placeholder=""
+            description="Higher numbers indicate higher priority"
+            value = ""
+>
+</custom-input>
+                </div>
+                <div>
+<custom-input id="ethernet2-network"
+              type="checkbox"
+              title="Network Options"
+              placeholder="Use as default route"
+              description="Route all traffic through this connection"
+              value = "">
+
+</custom-input>
+</div>
+            </div>
+            <custom-input
+                id="ip2-mode"
+               type="dropdown"
+              title="IP Mode"
+              placeholder="Static"
+              description="Choose how the IP is assigned — manually (Static) or automatically (DHCP)"
+              value = ""
+>
+</custom-input>
+<div class="ethernet">
+    <div>
+        <custom-input
+            id="ip2-address"
+            type="text"
+            title="IP Address"
+            placeholder="Enter IP address"
+            description="Static IP address for this Ethernet port"
+            value = ""
+>
+</custom-input>
+    </div>
+    <div>
+        <custom-input
+            id="subnet2-mask"
+            type="text"
+            title="Subnet Mask"
+            placeholder="Enter subnet mask"
+            description="Defines the size of the network"
+            value = ""
+>
+</custom-input>
+    </div>
+</div>
+<div class="ethernet">
+    <div>
+        <custom-input
+            id="default2-gateway"
+            type="text"
+            title="Default Gateway"
+            placeholder="Enter IP address"
+            description="IP address used to reach external networks"
+            value = ""
+>
+</custom-input>
+    </div>
+    <div>
+        <custom-input
+            id="dns2"
+            type="text"
+            title="DNS Server"
+            placeholder="Enter IP address"
+            description="IP address of the DNS server"
+            value = ""
+>
+</custom-input>
+    </div>
+
+</div>
+
+        </form>
+        <reset-and-save-buttons></reset-and-save-buttons>
+
+            </config-card>
+            </div>
+            </div>
+
+        </div>
+        <app-footer></app-footer>
+    </div>
+  </div>
+   <toast-container></toast-container>
+</body>
+</html>

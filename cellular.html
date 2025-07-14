@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cellular Data</title>
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="cellular.css">
+</head>
+<body>
+     <!-- Load the components -->
+  <script type="module" src="js/app-header.js"></script>
+  <script type="module" src="js/app-navbar.js"></script>
+  <script type="module" src="js/app-footer.js"></script>
+  <script type="module" src="js/bread-crumb.js"></script>
+  <script type="module" src="js/toast-container.js"></script>
+  <script type="module" src="js/config-card.js"></script>
+  <script type="module" src="js/status-indicator.js"></script>
+  <script type="module" src="js/enable-button.js"></script>
+  <script type="module" src="js/reset-and-save-buttons.js"></script>
+  <script type="module" src="js/custom-input.js"></script>
+
+  <app-header status="Online"></app-header>
+  <div class="main">
+    <app-navbar></app-navbar>
+    <div class="container">
+        <div class="config">
+             <bread-crumb></bread-crumb>
+             <div class="cell">
+             <div class="cell1">
+             <config-card heading="Cellular 1 Configuration" subheading="Configure your cellular network connection">
+<status-indicator status="disconnected"></status-indicator>
+
+            <enable-button value ="">Enable Cellular 1</enable-button>
+            <form >
+            <custom-input id=" cellular1-primary"
+              type="checkbox"
+              title="Network Options"
+              placeholder="Set as primary"
+              description="Set as primary 4G LTE connection"
+              value = "">
+
+</custom-input>
+<custom-input id=" cellular1-default"
+              type="checkbox"
+              title=""
+              placeholder="Use as default route"
+              description="Route all traffic through this connection"
+              value = "">
+
+</custom-input>
+<custom-input
+                id="priority1-no"
+               type="dropdown"
+              title="Priority"
+              placeholder="1883"
+              description="Higher numbers indicate higher priority"
+              value = ""
+>
+</custom-input>
+<custom-input
+            id="apn1-name"
+            type="text"
+            title="Access Point Name (APN)"
+            placeholder="Enter network APN"
+            description="Enter APN name of your service provider"
+            value = ""
+>
+</custom-input>
+</form>
+ <reset-and-save-buttons></reset-and-save-buttons>
+
+             </config-card>
+             </div>
+<div class="cell2">
+             <config-card heading="Cellular 2 Configuration" subheading="Configure your cellular network connection">
+              <status-indicator status="disconnected"></status-indicator>
+            <enable-button value ="">Enable Cellular 2</enable-button>
+            <form >
+            <custom-input id=" cellular2-primary"
+              type="checkbox"
+              title="Network Options"
+              placeholder="Set as primary"
+              description="Set as primary 4G LTE connection"
+              value = "">
+
+</custom-input>
+<custom-input id=" cellular2-default"
+              type="checkbox"
+              title=""
+              placeholder="Use as default route"
+              description="Route all traffic through this connection"
+              value = "">
+
+</custom-input>
+<custom-input
+                id="priority2-no"
+               type="dropdown"
+              title="Priority"
+              placeholder="1883"
+              description="Higher numbers indicate higher priority"
+              value = ""
+>
+</custom-input>
+<custom-input
+            id="apn2-name"
+            type="text"
+            title="Access Point Name (APN)"
+            placeholder="Enter network APN"
+            description="Enter APN name of your service provider"
+            value = ""
+>
+</custom-input>
+</form>
+ <reset-and-save-buttons></reset-and-save-buttons>
+             </config-card>
+             </div>
+             </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+  </div>
+   <toast-container></toast-container>
+</body>
+</html>

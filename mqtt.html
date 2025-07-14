@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQTT/s Configuration</title>
+    <link rel="stylesheet" href="./css/global.css">
+</head>
+<body>
+     <!-- Load the components -->
+  <script type="module" src="js/app-header.js"></script>
+  <script type="module" src="js/app-navbar.js"></script>
+  <script type="module" src="js/app-footer.js"></script>
+  <script type="module" src="js/bread-crumb.js"></script>
+  <script type="module" src="js/toast-container.js"></script>
+  <script type="module" src="js/config-card.js"></script>
+  <script type="module" src="js/status-indicator.js"></script>
+  <script type="module" src="js/enable-button.js"></script>
+  <script type="module" src="js/reset-and-save-buttons.js"></script>
+  <script type="module" src="js/custom-input.js"></script>
+
+  <app-header status="Online"></app-header>
+  <div class="main">
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="config">
+    <bread-crumb></bread-crumb>
+    <config-card heading="MQTT/s Configuration" subheading="Configure your MQTTs connection">
+        <status-indicator status="disconnected"></status-indicator>
+        <enable-button value ="{{MQTTs}}">Enable MQTT/s</enable-button>
+        <form action="">
+<custom-input
+            id="mqtt-broker"
+            type="text"
+            title="Broker Name"
+            placeholder="Enter Broker Name"
+            description="Enter the MQTTs Broker which you want to connnect"
+            value = ""
+>
+</custom-input>
+<div class="info">
+  <div>
+<custom-input
+                id="port-no"
+               type="dropdown"
+              title="Port No"
+              placeholder="1883"
+              description="Select Port number for MQTT/s connection. 1883 for MQTT and 8883 for MQTTs"
+              value = ""
+>
+</custom-input>
+</div>
+<div>
+<custom-input id="thingsboard-config"
+              type="checkbox"
+              title="Thingsboard Configuration"
+              placeholder="Enable Thingsboard Mode"
+              description="Send data to Thingsboard dashboard"
+              value = "">
+
+</custom-input>
+</div>
+</div>
+<div class="info">
+<div class="">
+<custom-input id="mqtt-username"
+            type="text"
+            title="Username"
+            placeholder="Enter Username"
+            description="Username for Broker"
+            value = "">
+
+</custom-input>
+
+</div>
+<div class="">
+<custom-input id="mqtt-password"
+            type="password"
+            title="Password"
+            placeholder="Enter password"
+            description="No password set">
+
+</custom-input>
+</div>
+</div>
+<div class="file">
+<div>
+<custom-input id="mqtt-ca-file"
+            type="file"
+            title="CA Certificate"
+            placeholder="No file selected"
+            description="Upload your CA certificate. Filetypes: *.crt"
+            filetype = ".crt">
+
+</custom-input>
+</div>
+<div>
+<custom-input id="mqtt-client-certificate-file"
+            type="file"
+            title="Client Certificate"
+            placeholder="No file selected"
+            description="Upload your Client certificate. Filetypes: *.pem"
+            filetype = ".pem">
+
+</custom-input>
+</div>
+<div>
+<custom-input id="mqtt-client-key-file"
+            type="file"
+            title="Client Key"
+            placeholder="No file selected"
+            description="Upload your Client Key. Filetypes: *.pem"
+            filetype = ".pem">
+
+</custom-input>
+</div>
+</div>
+
+<hr>
+<div class="bottom">
+  <div>
+<custom-input id="mqtt-monitoring"
+              type="checkbox"
+              title="MQTT/s Monitoring"
+              placeholder="Enable Monitoring"
+              description="Start a wotchdog to monitor MQTTs connection"
+              value = "">
+
+</custom-input>
+</div>
+<div>
+<custom-input id="thresold-value"
+            type="text"
+            title="Watchdog Threshold"
+            placeholder="Enter Threshold Value"
+            description="Set the minimum counter value for watchdog"
+            value = "">
+
+</custom-input>
+</div>
+</div>
+
+        </form>
+        <reset-and-save-buttons></reset-and-save-buttons>
+
+    </config-card>
+</div>
+<app-footer></app-footer>
+</div>
+
+ 
+
+  </div>
+  <toast-container></toast-container>
+    
+</body>
+</html>
