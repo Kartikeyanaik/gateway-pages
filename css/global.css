@@ -2,6 +2,8 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+    
+    
     display: flex;
     flex-direction: column;
     background-color: #F8F9FB;
@@ -10,21 +12,28 @@ html, body {
 .main {
     display: flex;
     flex-direction: row;
+    
     flex: 1 0 auto;
+    
 }
 
 .container {
     display: flex;
     flex-direction: column;
+   
     flex: 1;
+    
 }
 
 .config {
     display: flex;
     flex-direction: column;
+    
     padding: 0.6rem 1rem;
     height: 100%;
+    
 }
+
 
 .input-row {
     display: flex;
@@ -52,42 +61,43 @@ html, body {
     }
 }
 }
-.file{
-    display: flex;
-    column-gap: 4rem;
-}
-.file div{
-    flex:1;
-}
-.info{
-    display: flex;
-column-gap: 2.25rem;
-}
-.info div{
-    flex: 1;
-}
-.bottom{
-    display: flex;
-}
-.bottom div{
-    flex:1;
-}
+
 .cell{
     display: flex;
+    
 }
-.cell div {
+.cell > * {
     flex: 1;
 }
-.ethernet{
+
+.radio-group {
     display: flex;
-    column-gap: 2.18rem;
-}
-.status{
+    justify-content: center;  
+    gap: 0.5rem;                
     margin-top: 1rem;
-    
-    
 }
-.status div{
-    flex: 1;
-    
+#k {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
 }
+
+#k input[type="radio"] {
+    display: none;  
+}
+
+#k .radio-circle {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 2px solid #FF7A00;
+    background: #fff;  
+}
+
+
+#k input[type="radio"]:checked + .radio-circle {
+    background: #FF7A00;
+    transition: 0.3s;
+}
+

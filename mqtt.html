@@ -25,7 +25,7 @@
 <div class="container">
     <div class="config">
     <bread-crumb></bread-crumb>
-    <config-card heading="MQTT/s Configuration" subheading="Configure your MQTTs connection">
+    <config-card heading="MQTT/s Configuration" subheading="Configure your MQTT/s connection">
         <status-indicator status="disconnected"></status-indicator>
         <enable-button value ="{{MQTTs}}">Enable MQTT/s</enable-button>
         <form action="">
@@ -34,17 +34,18 @@
             type="text"
             title="Broker Name"
             placeholder="Enter Broker Name"
-            description="Enter the MQTTs Broker which you want to connnect"
+            description="Enter the MQTT/s Broker which you want to connnect"
             value = ""
 >
 </custom-input>
-<div class="info">
+<div class="input-row">
   <div>
 <custom-input
                 id="port-no"
                type="dropdown"
               title="Port No"
-              placeholder="1883"
+              options='["1883","8883"]'
+              placeholder=""
               description="Select Port number for MQTT/s connection. 1883 for MQTT and 8883 for MQTTs"
               value = ""
 >
@@ -61,8 +62,8 @@
 </custom-input>
 </div>
 </div>
-<div class="info">
-<div class="">
+<div class="input-row">
+<div>
 <custom-input id="mqtt-username"
             type="text"
             title="Username"
@@ -73,7 +74,7 @@
 </custom-input>
 
 </div>
-<div class="">
+<div>
 <custom-input id="mqtt-password"
             type="password"
             title="Password"
@@ -83,7 +84,7 @@
 </custom-input>
 </div>
 </div>
-<div class="file">
+<div class="input-row">
 <div>
 <custom-input id="mqtt-ca-file"
             type="file"
@@ -117,13 +118,13 @@
 </div>
 
 <hr>
-<div class="bottom">
+<div class="input-row">
   <div>
 <custom-input id="mqtt-monitoring"
               type="checkbox"
               title="MQTT/s Monitoring"
               placeholder="Enable Monitoring"
-              description="Start a wotchdog to monitor MQTTs connection"
+              description="Start a wotchdog to monitor MQTT/s connection"
               value = "">
 
 </custom-input>

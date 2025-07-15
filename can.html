@@ -18,6 +18,8 @@
   <script type="module" src="js/enable-button.js"></script>
   <script type="module" src="js/reset-and-save-buttons.js"></script>
   <script type="module" src="js/custom-input.js"></script>
+ 
+
 
    <app-header status="Online"></app-header>
    <div class="main">
@@ -29,16 +31,27 @@
             <status-indicator status="disconnected"></status-indicator>
             <enable-button value ="">Enable CAN</enable-button>
             <form action="">
+                <div class="radio-group">
+                <label id="k">
+                <input type="radio" name="radio" value="custom" ><span class="radio-circle"></span> Custom
+                </label>
+                <label id="k">
+                <input type="radio" name="radio" value="file" ><span class="radio-circle"></span> File
+                </label>
+                </div>
+                <div id="custom-option" class="options">
                <custom-input 
                id="can-baud-rate"
                type="dropdown"
               title="Baud Rate"
-              placeholder="25"
+              options='["600","1200","2400","4800","9600","19200","38400","57600","76800","115200"]'
+              placeholder=""
               description="Select Baud Rate of CAN connection in kilobytes per second(kbps)"
               value = "{{WIFI_DEFAULT_ROUTE}}"
                      >
             </custom-input>
-
+            </div>
+<div id="file-option" class="options">
             <custom-input
             type="file"
             title="CAN Configuration File"
@@ -46,6 +59,7 @@
             description="Upload your CAN Configuration file. Filetypes: *.json"
             filetype = ".json"
             ></custom-input>
+            </div>
             </form>
             <reset-and-save-buttons></reset-and-save-buttons>
 
@@ -56,6 +70,30 @@
 </div>
    </div>
    <toast-container></toast-container>
+<script>
+window.onload = () => {
+  const radios = document.querySelectorAll('input[name="radio"]');
+  const customOption = document.getElementById('custom-option');
+  const fileOption = document.getElementById('file-option');
+
+  
+  customOption.style.display = 'none';
+  fileOption.style.display = 'none';
+
+  radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      if (radio.value === 'custom') {
+        customOption.style.display = 'block';
+        fileOption.style.display = 'none';
+      } else {
+        customOption.style.display = 'none';
+        fileOption.style.display = 'block';
+      }
+    });
+  });
+};
+</script>
+
     
 </body>
 </html>

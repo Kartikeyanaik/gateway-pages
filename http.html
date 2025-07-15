@@ -26,7 +26,7 @@
     <div class="container">
         <div class="config">
             <bread-crumb></bread-crumb>
-            <config-card heading="HTTP Configuration" subheading="Configure your HTTP connection">
+            <config-card heading="HTTP/s Configuration" subheading="Configure your HTTP/s connection">
                 <status-indicator status="disconnected"></status-indicator>
                  <enable-button value ="{{HTTP}}">Enable HTTP/s</enable-button>
                  <form>
@@ -35,16 +35,17 @@
             type="text"
             title="Server URL"
             placeholder="Enter server URL"
-            description="URL of the HTTP server"
+            description="URL of the HTTP/s server"
             value = ""
 >
 </custom-input>
-<div class="info">
+<div class="input-row">
   <div>
 <custom-input
                 id="connection-type"
                type="dropdown"
               title="Connection Type"
+              options='["HTTPs","HTTP"]'
               placeholder="HTTPs"
               description="Select  HTTPs for secure connection and HTTP for insecure"
               value = ""
@@ -63,13 +64,13 @@
 </div>
 </div>
 <hr>
-<div class="bottom">
+<div class="input-row">
   <div>
 <custom-input id="http-monitoring"
               type="checkbox"
-              title="HTTP Monitoring"
+              title="HTTP/s Monitoring"
               placeholder="Enable Monitoring"
-              description="Start a wotchdog to monitor HTTP connection"
+              description="Start a wotchdog to monitor HTTP/s connection"
               value = "">
 
 </custom-input>

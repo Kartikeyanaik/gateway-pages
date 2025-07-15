@@ -30,12 +30,13 @@
                 <status-indicator status="disconnected"></status-indicator>
         <enable-button value ="{{MQTTs}}">Enable Ethernet 1</enable-button>
         <form >
-            <div class="ethernet">
+            <div class="input-row">
                 <div>
 <custom-input
             id="ethernet1-priority"
-            type="text"
+            type="dropdown"
             title="Priority"
+            options='["90", "95","100","105","110"]'
             placeholder=""
             description="Higher numbers indicate higher priority"
             value = ""
@@ -57,12 +58,13 @@
                 id="ip1-mode"
                type="dropdown"
               title="IP Mode"
+              options='["Static","Dynamic"]'
               placeholder="Static"
               description="Choose how the IP is assigned — manually (Static) or automatically (DHCP)"
               value = ""
 >
 </custom-input>
-<div class="ethernet">
+<div class="input-row">
     <div>
         <custom-input
             id="ip1-address"
@@ -86,7 +88,7 @@
 </custom-input>
     </div>
 </div>
-<div class="ethernet">
+<div class="input-row">
     <div>
         <custom-input
             id="default1-gateway"
@@ -121,12 +123,13 @@
                    <status-indicator status="disconnected"></status-indicator>
         <enable-button value ="{{MQTTs}}">Enable Ethernet 2</enable-button>
         <form >
-            <div class="ethernet">
+            <div class="input-row">
                 <div>
 <custom-input
             id="ethernet2-priority"
-            type="text"
+            type="dropdown"
             title="Priority"
+            options='["90", "95","100","105","110"]'
             placeholder=""
             description="Higher numbers indicate higher priority"
             value = ""
@@ -148,12 +151,13 @@
                 id="ip2-mode"
                type="dropdown"
               title="IP Mode"
-              placeholder="Static"
+              options='["Static","Dynamic"]'
+              placeholder=""
               description="Choose how the IP is assigned — manually (Static) or automatically (DHCP)"
               value = ""
 >
 </custom-input>
-<div class="ethernet">
+<div class="input-row">
     <div>
         <custom-input
             id="ip2-address"
@@ -177,7 +181,7 @@
 </custom-input>
     </div>
 </div>
-<div class="ethernet">
+<div class="input-row">
     <div>
         <custom-input
             id="default2-gateway"
@@ -187,8 +191,10 @@
             description="IP address used to reach external networks"
             value = ""
 >
+
 </custom-input>
     </div>
+   
     <div>
         <custom-input
             id="dns2"
@@ -215,5 +221,41 @@
     </div>
   </div>
    <toast-container></toast-container>
+<script>
+window.addEventListener("load", () => {
+    const setupEthernetMode = (port) => {
+        const dropdown = document.getElementById(`ip${port}-mode`);
+        const ipFields = [
+            `ip${port}-address`,
+            `subnet${port}-mask`,
+            `default${port}-gateway`
+        ];
+        const dnsField = `dns${port}`;
+
+        const toggleFields = (isStatic) => {
+            ipFields.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = isStatic ? "flex" : "none";
+            });
+
+            const dnsEl = document.getElementById(dnsField);
+            if (dnsEl) dnsEl.style.display = "flex"; // Always show DNS
+        };
+
+        const select = dropdown?.shadowRoot?.querySelector('select');
+        select?.addEventListener("change", () => {
+            const isStatic = select.value === "Static";
+            toggleFields(isStatic);
+        });
+
+        // Initialize on load
+        const isStatic = select?.value === "Static";
+        toggleFields(isStatic);
+    };
+
+    setupEthernetMode(1);
+    setupEthernetMode(2);
+});
+</script>
 </body>
 </html>
